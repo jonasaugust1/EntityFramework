@@ -6,6 +6,13 @@ namespace Domain
     [Table("Product")]
     public class Product
     {
+        public Product(string name, decimal price, Store store) 
+        { 
+            Name = name;
+            Price = price;
+            Store = store;
+        }
+
         [Key]
         public int Id { get; set; }
 
