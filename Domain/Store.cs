@@ -6,11 +6,17 @@ namespace Domain
     [Table("Store")]
     public class Store
     {
+        public Store()
+        {
+            Products = new List<Product>();
+        }
+
         public Store(string name) 
         {
             Name = name;
             Products = new List<Product>();
         }
+
         [Key]
         public int Id { get; set; }
 
