@@ -11,16 +11,18 @@ namespace WinForms.UserControls
         {
             InitializeComponent();
             Context = new ProductDbContext();
-            PopulateDropDown();
         }
-
-        private void PopulateDropDown()
+ 
+        public void PopulateDropDown()
         {
             List<Store> stores = Context.Stores.ToList();
 
             foreach (Store store in stores)
             {
-                DropDownStores.Items.Add(store.Name);
+                if(!DropDownStores.Items.Contains(store.Name))
+                {
+                    DropDownStores.Items.Add(store.Name);
+                }
             }
         }
 
@@ -54,7 +56,7 @@ namespace WinForms.UserControls
 
                     Context.SaveChanges();
 
-                    MessageBox.Show("Product saved with success.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Product saved with success.", "Success",MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (Exception ex)
@@ -66,6 +68,20 @@ namespace WinForms.UserControls
                 textBoxName.Text = String.Empty;
                 textBoxDescription.Text = String.Empty;
             }
+        }
+
+        private bool IsControlInFront(Control control)
+        {
+            if (control.Parent != null)
+            {
+                int controlIndex = control.Parent.Controls.GetChildIndex(control);
+                int topControlIndex = control.Parent.Controls.GetChildIndex(control.Parent.Controls[control.Parent.Controls.Count - 1]);
+
+
+                return (controlIndex == topControlIndex);
+            }
+
+            return false;
         }
     }
 }

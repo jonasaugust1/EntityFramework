@@ -6,6 +6,7 @@ namespace Domain
     [Table("Product")]
     public class Product
     {
+        public Product() { }
         public Product(string name, decimal price, Store store) 
         { 
             Name = name;

@@ -27,7 +27,7 @@ namespace WinForms.UserControls
                 Context.Stores.Add(store);
                 Context.SaveChanges();
 
-                MessageBox.Show("Success", "Store saved with success.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Store saved with success.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
