@@ -1,5 +1,6 @@
 ﻿using Data;
 using Domain;
+using System.Data.Entity;
 
 namespace WinForms.UserControls
 {
@@ -67,6 +68,8 @@ namespace WinForms.UserControls
             {
                 textBoxName.Text = String.Empty;
                 textBoxDescription.Text = String.Empty;
+                textBoxPrice.Text = String.Empty;
+                DropDownStores.SelectedItem = null;
             }
         }
 

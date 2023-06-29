@@ -82,7 +82,6 @@
             Controls.Add(label1);
             Name = "DeleteProductControl";
             Size = new Size(700, 400);
-            Load += DeleteProductControl_Load;
             ResumeLayout(false);
             PerformLayout();
         }

@@ -22,19 +22,18 @@ namespace WinForms.UserControls
             Context = new ProductDbContext();
         }
 
-
-        private void DeleteProductControl_Load(object sender, EventArgs e)
-        {
-            PopulateProductsDropDown();
-        }
-
-        private void PopulateProductsDropDown()
+        public void PopulateProductsDropDown()
         {
             List<Product> products = Context.Products.ToList();
 
             foreach (Product product in products)
             {
-                DropDownProducts.Items.Add(product.Name);
+                Context.Entry(product).Reload();
+
+                if (!DropDownProducts.Items.Contains(product.Name))
+                {
+                    DropDownProducts.Items.Add(product.Name);
+                }
             }
         }
 

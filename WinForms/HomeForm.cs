@@ -114,12 +114,16 @@ namespace WinForms
         {
             NavigationControl.Display(6);
             NavigationButtons.Highlight(btnDeleteStore);
+
+            DeleteStoreControl.PopulateStoresDropDown();
         }
 
         private void btnDeleteProduct_Click(object sender, EventArgs e)
         {
             NavigationControl.Display(7);
             NavigationButtons.Highlight(btnDeleteStore);
+
+            DeleteProductControl.PopulateProductsDropDown();
         }
     }
 }

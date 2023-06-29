@@ -1,4 +1,6 @@
 ﻿using Data;
+using Domain;
+using System.Data.Entity;
 
 namespace WinForms.UserControls
 {
@@ -13,8 +15,14 @@ namespace WinForms.UserControls
 
         public void PopulateGrid()
         {
-            Context.SaveChanges();
-            dataGridView.DataSource = Context.Stores.ToList();
+            List<Store> stores = Context.Stores.ToList();
+
+            foreach (Store store in stores)
+            {
+                Context.Entry(store).Reload();
+            }
+
+            dataGridView.DataSource = stores;
         }
     }
 }

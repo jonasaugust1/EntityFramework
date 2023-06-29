@@ -1,5 +1,6 @@
 ﻿using Data;
 using Domain;
+using System.Data.Entity;
 
 namespace WinForms.UserControls
 {

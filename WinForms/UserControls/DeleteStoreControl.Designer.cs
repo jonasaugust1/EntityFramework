@@ -82,7 +82,6 @@
             Controls.Add(label1);
             Name = "DeleteStoreControl";
             Size = new Size(700, 400);
-            Load += DeleteStoreControl_Load;
             ResumeLayout(false);
             PerformLayout();
         }

@@ -1,14 +1,5 @@
 ﻿using Data;
 using Domain;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace WinForms.UserControls
 {
@@ -21,18 +12,18 @@ namespace WinForms.UserControls
             Context = new ProductDbContext();
         }
 
-        private void DeleteStoreControl_Load(object sender, EventArgs e)
-        {
-            PopulateStoresDropDown();
-        }
-
-        private void PopulateStoresDropDown()
+        public void PopulateStoresDropDown()
         {
             List<Store> stores = Context.Stores.ToList();
 
             foreach (Store store in stores)
             {
-                DropDownStores.Items.Add(store.Name);
+                Context.Entry(store).Reload();
+
+                if(!DropDownStores.Items.Contains(store.Name))
+                {
+                    DropDownStores.Items.Add(store.Name);
+                }
             }
         }
 

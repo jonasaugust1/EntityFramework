@@ -74,6 +74,8 @@ namespace WinForms.UserControls
 
                 Context.SaveChanges();
 
+                Context.Entry(store).Reload();
+
                 UpdateStoresDropDown(storeIndex, store.Name);
 
                 MessageBox.Show("Store updated with success.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
